@@ -76,8 +76,8 @@ def classify_query(query: str) -> str:
         result = response.choices[0].message.content.strip().upper()
         return "ADVISORY" if "ADVISORY" in result else "FACTUAL"
     except RateLimitError:
-        print("[WARN] Classifier rate-limited after retries. Defaulting to ADVISORY (fail closed).")
-        return "ADVISORY"
+        print("[WARN] Classifier rate-limited after retries. Defaulting to FACTUAL (fail open).")
+        return "FACTUAL"
     except Exception as e:
-        print(f"[WARN] Classifier LLM failed: {e}. Defaulting to ADVISORY (fail closed).")
-        return "ADVISORY"
+        print(f"[WARN] Classifier LLM failed: {e}. Defaulting to FACTUAL (fail open).")
+        return "FACTUAL"
