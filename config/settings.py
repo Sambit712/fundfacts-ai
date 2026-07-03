@@ -13,7 +13,7 @@ load_dotenv()
 
 # ── LLM settings — Groq ──────────────────────────────────────────────────────
 LLM_PROVIDER = "groq"
-LLM_MODEL = "llama3-8b-8192"             # Fast, free-tier Groq model
+LLM_MODEL = "llama-3.1-8b-instant"             # Fast, free-tier Groq model
 LLM_MAX_TOKENS = 300
 LLM_TEMPERATURE = 0.0                           # Deterministic for facts
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
